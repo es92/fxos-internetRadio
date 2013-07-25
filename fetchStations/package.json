@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "request": "*",
+    "xml2js": "*",
+    "cheerio": "*"
+  }
+}

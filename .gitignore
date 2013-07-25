@@ -1,0 +1,7 @@
+, station.genre
+*.un~
+
+fetchStations/node_modules/
+fetchStations/stations.xml
+fetchStations/stations-raw.json
+fetchStations/stations-plus.json
