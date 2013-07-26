@@ -1,0 +1,50 @@
+#!/bin/bash
+
+
+#prep and kill old app
+APP_NAME=$(cat *app/manifest.webapp | grep name | head -1 | cut -d '"' -f 4 | cut -b 1-15)
+echo $APP_NAME
+APP_PID=$(adb shell b2g-ps | grep -E "^$APP_NAME" | awk '{ print $3 }')
+echo $APP_PID
+if [[ -n "$APP_PID" ]]
+then
+  adb shell kill ${APP_PID}
+fi
+
+UNIQUE=internet-radio-3np23tn
+
+#update app
+adb shell rm -r /data/local/webapps/$UNIQUE
+adb shell mkdir -p /data/local/webapps/$UNIQUE
+adb push app/manifest.webapp /data/local/webapps/$UNIQUE/
+
+cd app
+zip ../application.zip -r *
+cd ..
+
+adb push application.zip /data/local/webapps/$UNIQUE/
+
+#check if metadata needs update
+adb pull data/local/webapps/webapps.json tmp/webapps.json
+
+if ! grep -q $UNIQUE "tmp/webapps.json"; then
+  head -n -2 tmp/webapps.json > tmp/webapps2.json
+  echo "  }," >> tmp/webapps2.json
+  echo "  \"$UNIQUE\": {" >> tmp/webapps2.json
+  echo "    \"origin\": \"app://$UNIQUE\"," >> tmp/webapps2.json
+  echo "    \"installOrigin\": \"app://$UNIQUE\"," >> tmp/webapps2.json
+  echo "    \"manifestURL\": \"app://$UNIQUE/manifest.webapp\"," >> tmp/webapps2.json
+  echo "    \"appStatus\": 1," >> tmp/webapps2.json
+  echo "    \"installTime\": $(date +%s)00," >> tmp/webapps2.json
+  echo "    \"installState\": \"installed\"," >> tmp/webapps2.json
+  echo "    \"removable\": true," >> tmp/webapps2.json
+  echo "    \"id\": \"$UNIQUE\"," >> tmp/webapps2.json
+  echo "    \"basePath\": \"/data/local/webapps\"," >> tmp/webapps2.json
+  echo "    \"localId\": 10004," >> tmp/webapps2.json
+  echo "    \"name\": \"InternetRadio\"" >> tmp/webapps2.json
+  echo "  }" >> tmp/webapps2.json
+  echo "}" >> tmp/webapps2.json
+  echo "" >> tmp/webapps2.json
+  adb push tmp/webapps2.json /data/local/webapps/webapps.json
+  adb reboot
+fi

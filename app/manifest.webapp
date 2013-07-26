@@ -1,0 +1,17 @@
+{
+  "name": "InternetRadio",
+  "description": "Internet Radio",
+  "launch_path": "/index.html",
+  "developer": {
+    "name": "Evan Shapiro",
+    "url": "https://github.com/es92/fxos-internetRadio"
+  },
+  "locales": {
+    "en-US": {
+      "name": "Internet Radio",
+      "description": "Internet Radio"
+    }
+  },
+  "default_locale": "en-US",
+  "orientation": "portrait-primary"
+}
