@@ -2,18 +2,35 @@ var stations = require('./stations-filtered.json');
 
 stations.directory.entry.forEach(function(x){ return x.listeners = parseInt(x.listeners); });
 
-stations.directory.entry.sort(function(a, b){
-  if (a.listeners < b.listeners)
+var tags = { };
+
+stations.directory.entry.forEach(function(station){
+  for (var i = 0; i < station.tags.length; i++){
+    var tag = station.tags[i];
+    if (tag in tags){
+      tags[tag] += station.listeners || 1;
+    }
+    else {
+      tags[tag] = station.listeners || 1;
+    }
+  }
+});
+
+var tagsArray = [];
+for (tag in tags){
+  tagsArray.push({
+    tag: tag,
+    score: tags[tag]
+  });
+}
+
+tagsArray.sort(function(a, b){
+  if (a.score < b.score)
     return -1;
-  else if (a.listeners > b.listeners)
+  else if (a.score > b.score)
     return 1;
-  else
+  else 
     return 0;
 });
 
-stations.directory.entry.forEach(function(station){
-  console.log(station.listeners, station.server_name, station.tags);
-});
-
-console.log(stations.directory.entry.length)
-
+console.log(tagsArray);

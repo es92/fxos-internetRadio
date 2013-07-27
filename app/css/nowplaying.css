@@ -1,0 +1,11 @@
+
+#nowplaying {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4rem;
+  background: rgba(24, 24, 24, .75);
+  box-shadow: 0 -5px 5px rgba(0, 0, 0, .5);
+  z-index: 1;
+}

@@ -2,9 +2,71 @@
 <html>
 <head>
   <meta charset="utf8"></meta>
+
+  <link rel="stylesheet" type="text/css" href="css/reset.css"></link>
+  <link rel="stylesheet" type="text/css" href="css/style.css"></link>
+  <link rel="stylesheet" type="text/css" href="css/switchbox.css"></link>
+  <link rel="stylesheet" type="text/css" href="css/header.css"></link>
+  <link rel="stylesheet" type="text/css" href="css/mainbox.css"></link>
+  <link rel="stylesheet" type="text/css" href="css/nowplaying.css"></link>
+
+
+  <script src="js/App.js"></script>
+
+  <script src="js/StationSelection.js"></script>
+  <script src="js/ViewSwitcher.js"></script>
+  <script src="js/Switchbox.js"></script>
+
+  <script src="js/Stations.js"></script>
+  <script src="stations-filtered.js"></script>
+  <script src="genres.js"></script>
+
+  <script src="js/TapManager.js"></script>
+  <script src="js/Utils.js"></script>
+
 </head>
 <body>
-  this is just a test3
+  <div id="contentOverlay" class="hidden"></div>
+  <div class="header">
+    <div class="switchbox tappable" id="mainbox-switcher">
+      <div class="switcher-search"></div>
+      <div class="switcher-genres"></div>
+      <div class="switcher-favorites"></div>
+    </div>
+    <div class="switchbox" id="headerbox">
+      <div class="header-search">
+        <input type="search" placeholder="Search..."></input>
+      </div>
+      <div class="header-genres">
+        genres
+      </div>
+      <div class="header-favorites">
+        favorites
+      </div>
+    </div>
+  </div>
+  <div id="mainbox-switchers" class="hidden">
+    <div class="tappable search"></div>
+    <div class="tappable genres"></div>
+    <div class="tappable favorites"></div>
+  </div>
+  <div class="switchbox" id="mainbox">
+    <div class="main-search">
+      <div class="items"></div>
+    </div>
+    <div class="main-genres">
+      <div class="title">
+        <div class="back tappable"></div>
+        <div class="text"></div>
+      </div>
+      <div class="items"></div>
+    </div>
+    <div class="main-favorites">
+      <div class="items"></div>
+    </div>
+  </div>
+  <div id="nowplaying">
+  </div>
 </body>
 </html>
 

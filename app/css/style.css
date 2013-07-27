@@ -1,0 +1,22 @@
+body, input {
+  font-family: Helvetica;
+  letter-spacing: 1px;
+}
+
+.hidden {
+  display: none;
+}
+
+.tappable.buttonDown {
+  background-color: rgba(0, 138, 170, 1) !important;
+}
+
+#contentOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, .5) !important;
+  z-index: 5;
+}

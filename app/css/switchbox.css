@@ -1,0 +1,13 @@
+.switchbox {
+  
+}
+
+.switchbox > * {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+.switchbox > .active {
+  display: block;
+}

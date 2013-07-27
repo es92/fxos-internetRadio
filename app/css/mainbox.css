@@ -1,0 +1,130 @@
+#mainbox {
+  position: absolute;
+  top: 3em;
+  left: 0;
+  right: 0;
+  bottom: 0em;
+  background: #222;
+}
+
+#mainbox .items {
+  overflow-y: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+#mainbox .hastitle > .items {
+  top: 3rem;
+}
+
+#mainbox > * > .title {
+  height: 3rem;
+}
+
+#mainbox > * > .title > .back {
+  height: 100%;
+  width: 3rem;
+  float: left;
+  background-image: url('../style/back.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto 70%;
+}
+
+#mainbox > * > .title > .text {
+  float: left;
+  width: calc(100% - 3rem);
+  height: 100%;
+  -moz-box-sizing: border-box;
+  font-size: 1.5rem;
+  line-height: 3rem;
+  color: white;
+}
+
+#mainbox .station {
+  position: relative;
+  width: 100%;
+  height: auto;
+  -moz-box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+#mainbox .category {
+  position: relative;
+  width: 100%;
+  height: auto;
+  -moz-box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.station .content {
+  margin-right: 20%;
+}
+
+.station .title,
+.category .title {
+  font-size: 1.25rem;
+  padding-top: .5rem;
+  padding-bottom: .25rem;
+  font-weight: bold;
+  color: white;
+  -moz-box-sizing: border-box;
+  width: 100%;
+  white-space:nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.station .title {
+  padding-left: .5rem;
+}
+
+.category .title {
+  padding-left: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.station .listeners {
+  padding-left: .5rem;
+  padding-bottom: .25rem;
+  padding-top: .25rem;
+  -moz-box-sizing: border-box;
+  width: 100%;
+  font-size: 1rem;
+  color: white;
+  overflow: hidden;
+}
+
+.station .description {
+  padding: .5rem;
+  padding-left: 1rem;
+  width: 100%;
+  -moz-box-sizing: border-box;
+  font-size: .875rem;
+  color: white;
+  overflow: hidden;
+}
+
+.station .toggleFavorite {
+  position: absolute;
+  top: calc(50% - 2rem);
+  height: 4rem;
+  left: 80%;
+  right: 0%;
+  background-image: url('../style/star_off.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto 70%;
+}
+
+.station .toggleFavorite.favorited {
+  background-image: url('../style/star_on.png');
+}
+
+#mainbox > * > *:last-child {
+  margin-bottom: 4rem;
+}
