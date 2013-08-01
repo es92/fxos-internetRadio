@@ -36,7 +36,6 @@ ViewSwitcher.prototype = {
     this.dom.contentOverlay.classList.toggle('hidden');
   },
   activateSwitcher: function(view){
-    console.log('switch', view);
     this.toggleSwitcher();
     this.setView(view);
   }

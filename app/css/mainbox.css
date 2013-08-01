@@ -3,7 +3,7 @@
   top: 3em;
   left: 0;
   right: 0;
-  bottom: 0em;
+  bottom: 0;
   background: #222;
 }
 
@@ -42,6 +42,10 @@
   font-size: 1.5rem;
   line-height: 3rem;
   color: white;
+}
+
+#mainbox > * > * > *:last-child {
+  margin-bottom: 4rem;
 }
 
 #mainbox .station {
@@ -123,8 +127,4 @@
 
 .station .toggleFavorite.favorited {
   background-image: url('../style/star_on.png');
-}
-
-#mainbox > * > *:last-child {
-  margin-bottom: 4rem;
 }

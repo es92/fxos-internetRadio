@@ -13,6 +13,11 @@
 
   <script src="js/App.js"></script>
 
+  <script src="js/NowPlaying.js"></script>
+  <script src="js/AudioPlayer.js"></script>
+
+  <script src="js/Favorites.js"></script>
+
   <script src="js/StationSelection.js"></script>
   <script src="js/ViewSwitcher.js"></script>
   <script src="js/Switchbox.js"></script>
@@ -65,7 +70,11 @@
       <div class="items"></div>
     </div>
   </div>
-  <div id="nowplaying">
+  <div id="nowplaying" class="hidden">
+    <div class="title"></div>
+    <div class="toggleFavorite"></div>
+    <div class="control tappable"></div>
+    <audio id="audioPlayer" class="hidden"></audio>
   </div>
 </body>
 </html>

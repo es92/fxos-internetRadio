@@ -13,5 +13,8 @@
     }
   },
   "default_locale": "en-US",
+  "icons": {
+    "120": "/style/icons/InternetRadio.png"
+  },
   "orientation": "portrait-primary"
 }

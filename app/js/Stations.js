@@ -9,6 +9,8 @@ Stations.prototype = {
       return matches;
     for (var i = 0; i < this.stations.directory.entry.length; i++){
       var station = this.stations.directory.entry[i];
+      if (station.server_type[0] === 'audio/aacp')
+        continue;
       var match = false;
       if (typeof search == 'string'){
         match = match || this.stationMatch(station, search);

@@ -5,7 +5,82 @@
   left: 0;
   right: 0;
   height: 4rem;
-  background: rgba(24, 24, 24, .75);
+  background: rgba(24, 24, 24, .85);
   box-shadow: 0 -5px 5px rgba(0, 0, 0, .5);
   z-index: 1;
+}
+
+#nowplaying .title {
+  position: absolute;
+  left: .5rem;
+  right: 8.5rem;
+  top: .5rem;
+  bottom: .5rem;
+  font-size: 1.25rem;
+  line-height: 3rem;
+  color: white;
+  white-space:nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+}
+
+#nowplaying .toggleFavorite {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 4.5rem;
+  width: 4rem;
+  background-image: url('../style/star_off.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto 60%;
+}
+
+#nowplaying .toggleFavorite.favorited {
+  background-image: url('../style/star_on.png');
+}
+
+#nowplaying .control {
+  position: absolute;
+  right: .5rem;
+  top: 0;
+  bottom: 0;
+  width: 4rem;
+  background-image: url('../style/play.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto 60%;
+}
+
+#nowplaying .control.disabled {
+  background-image: url('../style/play_disabled.png');
+}
+
+#nowplaying .control.paused {
+  background-image: url('../style/pause.png');
+}
+
+#nowplaying .control.buffering {
+  background-image: none;
+  overflow: hidden;
+}
+
+#nowplaying .control.buffering:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: "";
+  background-image: url('../style/spinner.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto 60%;
+  animation: 0.9s rotate infinite steps(30);
+}
+
+@keyframes rotate {
+  from { transform: rotate(1deg); }
+  to   { transform: rotate(360deg); }
 }

@@ -1,5 +1,6 @@
-var StationSelection = function(){
+var StationSelection = function(favorites){
 
+  this.favorites = favorites;
   this.stations = new Stations();
 
   this.dom = {};
@@ -19,8 +20,33 @@ var StationSelection = function(){
 
   Utils.setupPassParent(this, 'selectStation');
   Utils.setupPassParent(this, 'toggleFavorite');
+
+  this.setViewStations(this.dom.mainFavorites, this.favorites.getFavorites());
 }
 StationSelection.prototype = {
+  setIsFavorite: function(station, isFavorite){
+    var stations = document.querySelectorAll('.station');
+    var str = JSON.stringify(station);
+    var foundInFavorites = false;
+    for (var i = 0; i < stations.length; i++){
+      var stationDiv = stations[i];
+      var divStation = stationDiv.getAttribute('data-station');
+      if (str === divStation){
+        if (stationDiv.getAttribute('data-view-class').indexOf('main-favorites') !== -1)
+          foundInFavorites = true;
+        var favoriteDiv = stationDiv.querySelector('.toggleFavorite');
+        if (isFavorite)
+          favoriteDiv.classList.add('favorited')
+        else
+          favoriteDiv.classList.remove('favorited')
+      }
+    }
+    if (isFavorite && !foundInFavorites){
+      var div = this.makeStationDiv(this.dom.mainFavorites, station);
+      var items = this.dom.mainFavorites.querySelector('.items');
+      items.appendChild(div);
+    }
+  },
   search: function(){
     var search = this.dom.searchInput.value;
     var matches = this.stations.search(search);
@@ -35,7 +61,7 @@ StationSelection.prototype = {
     Utils.empty(items);
     for (var i = 0; i < stations.length; i++){
       var station = stations[i];
-      var div = this.makeStationDiv(station);
+      var div = this.makeStationDiv(view, station);
       items.appendChild(div);
     }
     items.scrollTop = 0;
@@ -53,9 +79,11 @@ StationSelection.prototype = {
     }
     items.scrollTop = 0;
   },
-  makeStationDiv: function(station){
+  makeStationDiv: function(view, station){
     var div = document.createElement('div');
     div.classList.add('station');
+    div.setAttribute('data-station', JSON.stringify(station));
+    div.setAttribute('data-view-class', view.classList);
 
     var content = document.createElement('div');
     content.classList.add('tappable');
@@ -84,9 +112,10 @@ StationSelection.prototype = {
     toggleFavorite.classList.add('toggleFavorite');
     div.appendChild(toggleFavorite);
     Utils.onButtonTap(toggleFavorite, function(){
-      toggleFavorite.classList.toggle('favorited');
       this.toggleFavorite(station);
     }.bind(this));
+    if (this.favorites.isFavorite(station))
+      toggleFavorite.classList.add('favorited');
 
     return div;
   },
