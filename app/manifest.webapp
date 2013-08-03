@@ -2,9 +2,15 @@
   "name": "InternetRadio",
   "description": "Internet Radio",
   "launch_path": "/index.html",
+  "version": "1.1",
   "developer": {
     "name": "Evan Shapiro",
     "url": "https://github.com/es92/fxos-internetRadio"
+  },
+  "permissions": {
+    "audio-channel-content": { 
+      "description": "play audio in the background"
+    }
   },
   "locales": {
     "en-US": {
@@ -14,7 +20,7 @@
   },
   "default_locale": "en-US",
   "icons": {
-    "120": "/style/icons/InternetRadio.png"
+    "128": "/icons/InternetRadio.png"
   },
   "orientation": "portrait-primary"
 }
