@@ -21,9 +21,13 @@ var StationSelection = function(favorites){
   Utils.setupPassParent(this, 'selectStation');
   Utils.setupPassParent(this, 'toggleFavorite');
 
-  this.setViewStations(this.dom.mainFavorites, this.favorites.getFavorites());
+  this.refreshFavorites();
+
 }
 StationSelection.prototype = {
+  refreshFavorites: function(){
+    this.setViewStations(this.dom.mainFavorites, this.favorites.getFavorites());
+  },
   setIsFavorite: function(station, isFavorite){
     var stations = document.querySelectorAll('.station');
     var str = JSON.stringify(station);

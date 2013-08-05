@@ -9,6 +9,8 @@ function App(){
 
   this.viewSwitcher.setView('genres');
 
+  this.viewSwitcher.ongotoFavorites = this.stationSelection.refreshFavorites.bind(this.stationSelection);
+
   this.stationSelection.onselectStation = this.nowPlaying.setStation.bind(this.nowPlaying);
 
   this.stationSelection.ontoggleFavorite = this.favorites.toggleFavorite.bind(this.favorites);

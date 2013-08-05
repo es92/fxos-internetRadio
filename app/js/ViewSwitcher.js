@@ -18,6 +18,8 @@ function ViewSwitcher(){
 
   this.dom.contentOverlay = document.querySelector('#contentOverlay');
   Utils.onButtonTap(this.dom.contentOverlay, this.toggleSwitcher.bind(this));
+
+  Utils.setupPassParent(this, 'gotoFavorites');
 }
 
 ViewSwitcher.prototype = {
@@ -28,6 +30,9 @@ ViewSwitcher.prototype = {
     var active = document.querySelector('#mainbox-switchers .active');
     if (active)
       active.classList.remove('active');
+    if (view === 'favorites'){
+        this.gotoFavorites();
+    }
     document.querySelector('#mainbox-switchers .' + view).classList.add('active');
   },
   toggleSwitcher: function(){
