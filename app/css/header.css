@@ -3,9 +3,8 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 3rem;
-  background: #181818;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, .5);
+  height: 3.1rem;
+  background: #242D33;
   z-index: 1;
 }
 
@@ -22,14 +21,10 @@
 #mainbox-switcher:after {
   content: '';
   position: absolute;
-  width: 25%;
-  height: 25%;
-  right: 0;
-  bottom: 0;
   background-image: url('../style/down.png');
   background-repeat: no-repeat;
   background-position: right bottom;
-  background-size: auto 100%;
+  background-size: 100%;
 }
 
 #mainbox-switcher.hide:after {
@@ -37,11 +32,11 @@
 }
 
 #mainbox-switcher > * {
-  width: 100%;
-  height: 100%;
+  width: 3.2rem;
+  height: 3.1rem;
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: auto 60%;
+  background-size: auto;
 }
 
 #mainbox-switcher .switcher-search {
@@ -49,11 +44,12 @@
 }
 
 #mainbox-switcher .switcher-genres {
-  background-image: url('../style/note.png');
+  background-image: url('../style/menu.png');
 }
 
 #mainbox-switcher .switcher-favorites {
-  background-image: url('../style/star_on.png');
+  background-image: url('../style/star_off.png');
+  background-size: auto 64%;
 }
 
 /*================================*/
@@ -65,8 +61,7 @@
   width: 6rem;
   z-index: 10;
 
-  background: #181818;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
+  background: #242D33;
   border-top: 1px solid #111;
 }
 
@@ -79,26 +74,29 @@
 }
 
 #mainbox-switchers > .active {
-  background-color: #282828;
+  background-color: #00aacc;
 }
 
 #mainbox-switchers > .search {
   background-image: url('../style/search.png');
+  background-size: auto;
 }
 
 #mainbox-switchers > .genres {
-  background-image: url('../style/note.png');
+  background-image: url('../style/play.png');
+  background-size: auto;
 }
 
 #mainbox-switchers > .favorites {
   background-image: url('../style/star_on.png');
+  background-size: auto 60%;
 }
 
 /*================================*/
 
 #headerbox {
   position: absolute;
-  right: 0;
+  right: 3rem;
   left: 3rem;
   top: 0;
   bottom: 0;
@@ -108,22 +106,27 @@
 #headerbox > * {
   color: white;
   font-size: 1.5rem;
+  font-style: italic;
+  font-weight: 300;
+  text-align: center;
   line-height: 3rem;
 }
 
 .header-search input {
   height: 100%;
   width: 100%;
+  margin-left: 0.2rem;
   color: white;
   -moz-box-sizing: border-box;
 
   background: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
+  font-style: italic;
 }
 
 .header-search input:focus {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .header-search input:-moz-placeholder {

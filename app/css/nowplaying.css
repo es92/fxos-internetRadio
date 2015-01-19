@@ -4,9 +4,9 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 4rem;
-  background: rgba(24, 24, 24, .85);
-  box-shadow: 0 -5px 5px rgba(0, 0, 0, .5);
+  height: 3rem;
+  background: #000;
+  border-top: 0.1rem solid #333;
   z-index: 1;
 }
 
@@ -14,9 +14,7 @@
   position: absolute;
   left: .5rem;
   right: 8.5rem;
-  top: .5rem;
-  bottom: .5rem;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   line-height: 3rem;
   color: white;
   white-space:nowrap;
@@ -27,14 +25,13 @@
 
 #nowplaying .toggleFavorite {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 4.5rem;
-  width: 4rem;
+  height: 2.9rem;
+  right: 4rem;
+  width: 3rem;
   background-image: url('../style/star_off.png');
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: auto 60%;
+  background-size: auto 50%;
 }
 
 #nowplaying .toggleFavorite.favorited {
@@ -46,11 +43,11 @@
   right: .5rem;
   top: 0;
   bottom: 0;
-  width: 4rem;
+  width: 3rem;
   background-image: url('../style/play.png');
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: auto 60%;
+  background-size: auto;
 }
 
 #nowplaying .control.disabled {
@@ -76,7 +73,7 @@
   background-image: url('../style/spinner.png');
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: auto 60%;
+  background-size: auto;
   animation: 0.9s rotate infinite steps(30);
 }
 

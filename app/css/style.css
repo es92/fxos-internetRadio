@@ -1,6 +1,5 @@
 body, input {
-  font-family: Helvetica;
-  letter-spacing: 1px;
+  font-size: 100%;
 }
 
 .hidden {
