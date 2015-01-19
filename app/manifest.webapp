@@ -2,7 +2,7 @@
   "name": "InternetRadio",
   "description": "Internet Radio",
   "launch_path": "/index.html",
-  "version": "1.2",
+  "version": "1.21",
   "developer": {
     "name": "Evan Shapiro",
     "url": "https://github.com/es92/fxos-internetRadio"
