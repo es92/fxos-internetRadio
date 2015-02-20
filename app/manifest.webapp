@@ -1,6 +1,6 @@
 {
   "name": "InternetRadio",
-  "description": "Internet Radio",
+  "description": "App to listen to Internet radios",
   "launch_path": "/index.html",
   "version": "1.21",
   "developer": {
@@ -9,13 +9,27 @@
   },
   "permissions": {
     "audio-channel-content": { 
-      "description": "play audio in the background"
+      "description": "Play audio in background"
     }
   },
   "locales": {
-    "en-US": {
-      "name": "Internet Radio",
-      "description": "Internet Radio"
+    "eo": {
+      "name": "InterretRadio",
+      "description": "Aplikaĵo por aŭskulti al interretaj radioj",
+      "permissions": {
+        "audio-channel-content": { 
+          "description": "Ludi sonon kiam la aplikaĵo rulas fone"
+        }
+      }
+    },
+    "it": {
+      "name": "InternetRadio",
+      "description": "App per ascoltare le radio di internet",
+      "permissions": {
+        "audio-channel-content": { 
+          "description": "Ascolta la radio anche quando la app è in background"
+        }
+      }
     }
   },
   "default_locale": "en-US",
