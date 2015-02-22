@@ -1,6 +1,6 @@
 {
   "name": "InternetRadio",
-  "description": "App to listen to Internet radios",
+  "description": "App to listen to Internet radio",
   "launch_path": "/index.html",
   "version": "1.21",
   "developer": {
